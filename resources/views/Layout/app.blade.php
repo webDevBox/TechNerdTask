@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     <title>TechNerd Assessment</title>
 </head>
-<body>
+<body style="overflow-x:hidden;">
     <h1 class="my-3 text-center"> TechNerd Assessment </h1>
     @yield('content')
 </body>
