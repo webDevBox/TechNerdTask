@@ -12,7 +12,7 @@
         </ul>
         <p class="border border-danger">Note: Use Laravel Framework and Display the listing data in “jQuery DataTable”</p>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="" class="btn btn-primary">Check Task   </a>
+            <a href="{{route('student_record_list')}}" class="btn btn-primary">Check Task   </a>
           </div>
     </div>
     <div class="border border-warning col-3 p-3">
