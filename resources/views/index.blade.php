@@ -20,7 +20,7 @@
         <p>Write a query that scenario is “ user has many images, get those images that have active status, and those users that have images, if any user didn’t have any images then skip those users through query.”</p>
         <p class="border border-danger">Note: Please write this query in pure ORM.</p>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="" class="btn btn-primary">Check Task   </a>
+            <a href="{{route('user_record')}}" class="btn btn-primary">Check Task</a>
           </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController; 
+use App\Http\Controllers\UserController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/student-record',[StudentController::class, 'index'])->name('student_record_list');
+Route::get('/student/record',[StudentController::class, 'index'])->name('student_record_list');
+
+Route::get('/user/record',[UserController::class, 'index'])->name('user_record');
+
+Route::fallback(function(){
+    return redirect('/');
+});
