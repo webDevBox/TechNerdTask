@@ -23,6 +23,8 @@ Route::get('/student/record',[StudentController::class, 'index'])->name('student
 
 Route::get('/user/record',[UserController::class, 'index'])->name('user_record');
 
+Route::get('/user/details/{id}',[UserController::class, 'show'])->name('user_detail');
+
 Route::fallback(function(){
     return redirect('/');
 });

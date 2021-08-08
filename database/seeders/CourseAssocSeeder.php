@@ -24,8 +24,7 @@ class CourseAssocSeeder extends Seeder
             foreach($students as $student)
             {
                 CourseAssoc::updateOrInsert([
-                    'course_id' => $course->id , 'student_id' => $student->id , 'created_at' => now() ,
-                    'updated_at' => now()
+                    'course_id' => $course->id , 'student_id' => $student->id
                 ]);
             }
         }

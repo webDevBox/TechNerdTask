@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\UserData;
+use Illuminate\Database\Eloquent\Builder;
+use DataTables;
 
 class UserController extends Controller
 {
@@ -11,9 +15,28 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $users = User::whereHas('userData',function(Builder $query){
+            $query->where('status',1);
+        })->get();
+
+        if ($request->ajax()) {
+            return Datatables::of($users)
+                
+                ->addColumn('name', function($name){
+
+                    return '<a href="'.route('user_detail',['id' => $name->id]).'">' . $name->name . '</a>';
+                })
+                ->addColumn('count', function($count){
+
+                        return count($count->userData);
+                })
+                ->rawColumns(['name', 'count'])
+                ->make(true);     
+        }
+
+        return view('user.index');
     }
 
     /**
@@ -45,7 +68,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $details = UserData::where('status' , 1)->where('user_id',$id)->get();
+        return view('user.detail')->with(['details'=>$details , 'user' => $user]);
     }
 
     /**
