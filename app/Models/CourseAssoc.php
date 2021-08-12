@@ -9,6 +9,11 @@ class CourseAssoc extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'course_id' , 'student_id'
+    ];
+
+
     protected $with = [
         'student', 'course'
     ];

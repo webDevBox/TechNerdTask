@@ -20,10 +20,13 @@ Route::get('/', function () {
 });
 
 Route::get('/student/record',[StudentController::class, 'index'])->name('student_record_list');
+Route::get('/student/add',[StudentController::class, 'store'])->name('addStudent');
+Route::get('/student/delete/{id}',[StudentController::class, 'destroy'])->name('del_student');
 
 Route::get('/user/record',[UserController::class, 'index'])->name('user_record');
 
 Route::get('/user/details/{id}',[UserController::class, 'show'])->name('user_detail');
+
 
 Route::fallback(function(){
     return redirect('/');
